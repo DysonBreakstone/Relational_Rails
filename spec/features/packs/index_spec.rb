@@ -7,8 +7,6 @@ RSpec.describe "/packs", type: :feature do
   
   it "#index" do
     visit "/pack_table_name"
-    
-    save_and_open_page
 
     expect(page).to have_content(farpoint_70.name)
     expect(page).to have_content("Capacity: #{farpoint_70.liters} Liters")
