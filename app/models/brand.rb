@@ -5,7 +5,7 @@ class Brand < ApplicationRecord
     Brand.order(:created_at).reverse_order
   end
 
-  def self.count_packs
-
+  def count_packs
+    Pack.where(brand_id: id).count
   end
 end
