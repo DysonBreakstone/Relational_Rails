@@ -21,12 +21,17 @@ RSpec.describe "/brands", type: :feature do
   #User Story 7
   it "shows the number of Packs associated with the Brand" do
     visit "/brands/#{osprey.id}"
-    save_and_open_page
     expect(page).to have_content("Number of packs: 3")
     
     visit "/brands/#{gregory.id}"
-
+    
     expect(page).to have_content("Number of packs: 2")
+  end
+
+  #User Story 9
+  it "Links to Brand's Pack Index page on Brand show page" do
+    visit  "/brands/#{osprey.id}"
+    expect(page).to have_link("Osprey's Packs", href: )
   end
 
 end

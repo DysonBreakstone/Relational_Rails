@@ -19,8 +19,6 @@ RSpec.describe 'brands packs index', type: :feature do
     expect(page).to have_content(raptor_14.name)
     expect(page).to have_content(raptor_14.liters)
     expect(page).to have_content(raptor_14.waterproof)
-
-    save_and_open_page
     
     visit "/brands/#{gregory.id}/packs_table_name"
 
@@ -31,8 +29,6 @@ RSpec.describe 'brands packs index', type: :feature do
     expect(page).to have_content(resin_22.name)
     expect(page).to have_content(resin_22.liters)
     expect(page).to have_content(resin_22.waterproof)
-
-    save_and_open_page
   end
 
 end
