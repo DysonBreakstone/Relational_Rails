@@ -4,6 +4,6 @@ class BrandsController < ApplicationController
   end
   def show
     @brand = Brand.find(params[:id])
-    @pack_number = Brand.count_packs
+    @pack_number = @brand.count_packs
   end
 end
