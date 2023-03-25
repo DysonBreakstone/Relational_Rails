@@ -30,7 +30,6 @@ RSpec.describe "/brands", type: :feature do
     expect(page).to have_content(j.name)
     expect(page).to have_content(h.name)
     
-    save_and_open_page
     expect(h.name).to appear_before(f.name)
     expect(f.name).to appear_before(i.name)
     expect(i.name).to appear_before(c.name)

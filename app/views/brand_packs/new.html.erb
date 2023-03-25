@@ -1,0 +1,13 @@
+<form action="/brands/<%=@brand.id%>/packs_table_name" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <p>Pack Name:</p>
+  <input type='text' name="Name"/><br/>
+  <p>Capacity in Liters:</p>
+  <input type='number' name="Liters"><br/>
+  <p>Waterproof?</p>
+  <label for="true">True</label>
+  <input type='radio' id="true" value="true" name="Waterproof"><br/><br/>
+  <label for="false">False</label>
+  <input type='radio' id="false" value="false" name="Waterproof"><br/><br/>
+  <input type="submit" value="Create Pack"/>
+</form>

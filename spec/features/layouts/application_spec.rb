@@ -34,7 +34,6 @@ RSpec.describe "layout" do
     expect(page).to have_link("All Brands", href: "/brands")
     visit "/brands/#{gregory.id}/packs_table_name"
     expect(page).to have_link("All Brands", href: "/brands")
-    save_and_open_page
   end
 
 

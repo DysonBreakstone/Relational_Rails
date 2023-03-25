@@ -11,13 +11,11 @@ RSpec.describe "/pack_table_name/:id" do
     expect(page).to have_content(farpoint_70.name)
     expect(page).to have_content("Capacity: #{farpoint_70.liters} Liters")
     expect(page).to have_content("Waterproof? #{farpoint_70.waterproof}")
-    save_and_open_page
     
     visit "/pack_table_name/#{raptor_14.id}"
     expect(page).to have_content(raptor_14.name)
     expect(page).to have_content("Capacity: #{raptor_14.liters} Liters")
     expect(page).to have_content("Waterproof? #{raptor_14.waterproof}")
-    save_and_open_page
   end
 
 end
