@@ -31,4 +31,6 @@ RSpec.describe 'brands packs index', type: :feature do
     expect(page).to have_content(resin_22.waterproof)
   end
 
+  
+  it "Create Child"
 end

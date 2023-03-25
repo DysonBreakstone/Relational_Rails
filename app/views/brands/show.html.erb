@@ -1,5 +1,7 @@
 <h2><%=@brand.name%></h2>
+<%= link_to "Update Brand", "/brands/#{@brand.id}/edit"%>
 <p>Number of packs: <%= @pack_number %>
 <p><%=@brand.founded%></p>
 <p><%=@brand.backpacks_only%></p>
 <%= link_to "#{@brand.name}'s Packs", "/brands/#{@brand.id}/packs_table_name"%>
+
