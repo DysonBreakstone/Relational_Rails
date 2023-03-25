@@ -34,10 +34,21 @@ RSpec.describe "/new", type: :feature do
     choose("Backpacks_Only", option: true)
     click_button("Create Brand")
 
+    visit "/brands/new"
+
+    fill_in("Name", with: "gravy_fries")
+    fill_in("Founded", with: 4040)
+    choose("Backpacks_Only", option: false)
+    click_button("Create Brand")
+    
     visit "/brands"
 
     expect(page).to have_content("hamburger")
     expect(page).to have_content(1810)
     expect(page).to have_content(true)
+
+    expect(page).to have_content("gravy_fries")
+    expect(page).to have_content(4040)
+    expect(page).to have_content(false)
   end
 end

@@ -24,7 +24,7 @@ RSpec.describe '/brands/:parent_id/packs_table_name/new' do
     click_button("Create Pack")
 
     visit "/brands/#{osprey.id}/packs_table_name"
-    save_and_open_page
+    
     expect(page).to have_content("bacon")
     expect(page).to have_content(101)
     expect(page).to have_content(false)

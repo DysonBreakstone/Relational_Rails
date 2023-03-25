@@ -3,10 +3,10 @@ require 'rails_helper'
 RSpec.describe "/packs", type: :feature do
   describe "creation" do
     let!(:osprey) {Brand.create!(name: "Osprey", founded: 1974, backpacks_only: true)}
-    let!(:farpoint_70) {osprey.packs.create!(name: "Farpoint 70", liters: 70, waterproof: false)}
+    let!(:farpoint_70) {osprey.packs.create!(name: "Farpoint 70", liters: 70, waterproof: true)}
     let!(:raptor_14) {osprey.packs.create!(name: "Raptor 14", liters: 14, waterproof: true)}
     
-    xit "#index" do
+    it "#index" do
       visit "/pack_table_name"
 
       expect(page).to have_content(farpoint_70.name)
@@ -35,6 +35,27 @@ RSpec.describe "/packs", type: :feature do
       expect(page).to have_no_content(pack1.name)
       expect(page).to have_no_content(pack3.name)
       expect(page).to have_no_content(pack4.name)
+    end
+  end
+
+  describe "Pack edit button on packs index page" do
+    let!(:brand1) {Brand.create!(name:"brand1", founded: 1998, backpacks_only: true)}
+    let!(:d) {brand1.packs.create!(name: "dx", liters: 10, waterproof: false)}
+    let!(:j) {brand1.packs.create!(name: "jx", liters: 20, waterproof: false)}
+    let!(:a) {brand1.packs.create!(name: "ax", liters: 30, waterproof: true)}
+    let!(:g) {brand1.packs.create!(name: "gx", liters: 40, waterproof: true)}
+    let!(:b) {brand1.packs.create!(name: "bx", liters: 50, waterproof: false)}
+    let!(:e) {brand1.packs.create!(name: "ex", liters: 60, waterproof: true)}
+    let!(:c) {brand1.packs.create!(name: "cx", liters: 70, waterproof: true)}
+    let!(:i) {brand1.packs.create!(name: "ix", liters: 80, waterproof: true)}
+    let!(:f) {brand1.packs.create!(name: "fx", liters: 90, waterproof: false)}
+    let!(:h) {brand1.packs.create!(name: "hx", liters: 100, waterproof: false)}
+
+    it "has edit links next to each pack" do
+      visit "/pack_table_name"
+      save_and_open_page
+      # require 'pry'; binding.pry
+      expect(page.all(:link, "Edit Pack").count).to eq(Pack.where(waterproof: true).length)
     end
   end
   

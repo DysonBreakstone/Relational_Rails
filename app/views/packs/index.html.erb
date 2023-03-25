@@ -1,5 +1,5 @@
 <% @visible_packs.each do |pack| %>
-<h2><%= pack.name%></h2>
+<h2 style="display: inline;"><%= pack.name %></h2><h3 style="display: inline;"><%= link_to "Edit Pack", "/pack_table_name/#{pack.id}/edit"%></h3><br/>
 <p><%= "Capacity: #{pack.liters} Liters"%></p>
 <p><%= "Waterproof? #{pack.waterproof}"%></p>
 <% end %>

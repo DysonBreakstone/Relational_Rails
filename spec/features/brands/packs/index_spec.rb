@@ -95,4 +95,25 @@ RSpec.describe 'brands packs index', type: :feature do
   
     end
   end
+
+  # User Story 18
+  describe "Child edit button on child index page" do
+    let!(:brand1) {Brand.create!(name:"brand1", founded: 1998, backpacks_only: true)}
+    let!(:d) {brand1.packs.create!(name: "dx", liters: 10, waterproof: false)}
+    let!(:j) {brand1.packs.create!(name: "jx", liters: 20, waterproof: false)}
+    let!(:a) {brand1.packs.create!(name: "ax", liters: 30, waterproof: true)}
+    let!(:g) {brand1.packs.create!(name: "gx", liters: 40, waterproof: true)}
+    let!(:b) {brand1.packs.create!(name: "bx", liters: 50, waterproof: false)}
+    let!(:e) {brand1.packs.create!(name: "ex", liters: 60, waterproof: true)}
+    let!(:c) {brand1.packs.create!(name: "cx", liters: 70, waterproof: true)}
+    let!(:i) {brand1.packs.create!(name: "ix", liters: 80, waterproof: true)}
+    let!(:f) {brand1.packs.create!(name: "fx", liters: 90, waterproof: false)}
+    let!(:h) {brand1.packs.create!(name: "hx", liters: 100, waterproof: false)}
+
+    it "has edit links next to each child" do
+      visit "/brands/#{brand1.id}/packs_table_name/"
+      save_and_open_page
+      expect(page.all(:link, "Edit Pack").count).to eq(Pack.where(brand_id: brand1.id).length)
+    end
+  end
 end
