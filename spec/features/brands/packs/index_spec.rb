@@ -65,7 +65,7 @@ RSpec.describe 'brands packs index', type: :feature do
     it "has an alphabetize link" do
       visit "/brands/#{brand1.id}/packs_table_name"
 
-      expect(page).to have_link("Alphabetize", href: "/brands/#{brand1.id}/packs_table_name/alphabetize")
+      expect(page).to have_link("Alphabetize", href: "/brands/#{brand1.id}/packs_table_name?sort=true")
     end
 
     it "appears in alphabetical order when button is clicked" do 

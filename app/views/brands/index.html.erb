@@ -1,5 +1,5 @@
 <% @brands.each do |brand|%>
-  <p><%= brand.name %></p>
+  <p><%= brand.name %><%= link_to "Edit Brand"</p>
   <p><%= brand.founded %></p>
   <p><%= brand.backpacks_only %></p>
 <% end %>
