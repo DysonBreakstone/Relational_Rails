@@ -35,7 +35,6 @@ RSpec.describe "/brands", type: :feature do
     
     visit  "/brands/#{gregory.id}"
     expect(page).to have_link("Gregory's Packs", href: "/brands/#{gregory.id}/packs_table_name")
-    save_and_open_page
   end
 
 end
