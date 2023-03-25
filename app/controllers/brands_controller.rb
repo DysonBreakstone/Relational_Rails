@@ -1,10 +1,9 @@
 class BrandsController < ApplicationController
   def index
-    @brands = Brand.alphabetized
+    @brands = Brand.sorted
   end
 
   def show
-    # require 'pry'; binding.pry
     @brand = Brand.find(params[:id])
     @pack_number = @brand.count_packs
   end

@@ -1,7 +1,7 @@
 class Brand < ApplicationRecord
   has_many :packs
 
-  def self.alphabetized
+  def self.sorted
     Brand.order(:created_at).reverse_order
   end
 
