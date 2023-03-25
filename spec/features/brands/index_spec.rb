@@ -41,4 +41,10 @@ RSpec.describe "/brands", type: :feature do
     expect(j.name).to appear_before(d.name)
   end
 
+  it "has an edit next to every brand" do
+    visit "/brands"
+
+    expect(page.all(:link, "Edit Brand").count).to eq(Brand.all.length)
+  end
+
 end

@@ -1,7 +1,11 @@
 class BrandPacksController < ApplicationController
   def index
     @brand = Brand.find(params[:brand_id])
-    @packs = @brand.packs
+    if params[:sort] == "true"
+      @packs = Pack.alphabetize
+    else
+      @packs = @brand.packs
+    end
   end
 
   def new

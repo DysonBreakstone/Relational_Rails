@@ -1,5 +1,5 @@
 <h1><%= @brand.name %>
-<h2><%= link_to "Alphabetize", "/brands/#{@brand.id}/packs_table_name/alphabetize" %>
+<h2><%= link_to "Alphabetize", "/brands/#{@brand.id}/packs_table_name?sort=true" %>
 <% @packs.each do |pack| %>
 <h2><%= pack.name %></h2>
 <p><%= pack.liters %></p>
