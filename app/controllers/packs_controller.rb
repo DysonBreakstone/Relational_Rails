@@ -1,6 +1,7 @@
 class PacksController < ApplicationController
   def index
     @packs = Pack.all
+    @visible_packs = @packs.filter_for_true
   end
 
   def show
