@@ -20,4 +20,8 @@ class BrandPacksController < ApplicationController
       waterproof: wproof,
       brand_id: params[:brand_id])
   end
+
+  def alphabetize
+    
+  end
 end
