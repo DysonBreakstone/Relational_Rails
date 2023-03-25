@@ -20,7 +20,7 @@ class PacksController < ApplicationController
     else
       wproof = false
     end
-    
+  
     @pack.update(
       name: params[:Name],
       liters: params[:Liters],

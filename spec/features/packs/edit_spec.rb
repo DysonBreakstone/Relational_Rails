@@ -13,16 +13,16 @@ RSpec.describe "/pack_table_name/edit" do
     expect(page).to have_no_content(false)
     
     visit "/pack_table_name/#{raptor_14.id}/edit"
-
+    # require 'pry'; binding.pry
     fill_in("Name", with: "bacon")
     fill_in("Liters", with: 101)
-    choose("Waterproof", option: false)
+    choose("Waterproof", option: true)
     click_button("Update Pack")
-
+    # require 'pry'; binding.pry
     visit "/pack_table_name"
-    # save_and_open_page
+    save_and_open_page
     expect(page).to have_content("bacon")
     expect(page).to have_content(101)
-    expect(page).to have_content(false)
+    expect(page).to have_content(true)
   end
 end
