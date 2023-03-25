@@ -113,7 +113,7 @@ RSpec.describe 'brands packs index', type: :feature do
     it "has edit links next to each child" do
       visit "/brands/#{brand1.id}/packs_table_name/"
       save_and_open_page
-      expect(page.all(:link, "Edit Pack").count).to eq(Pack.where(:brand_id==brand1.id).length)
+      expect(page.all(:link, "Edit Pack").count).to eq(Pack.where(brand_id: brand1.id).length)
     end
   end
 end
