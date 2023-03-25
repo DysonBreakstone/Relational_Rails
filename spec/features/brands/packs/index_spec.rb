@@ -45,7 +45,6 @@ RSpec.describe 'brands packs index', type: :feature do
 
     it "has a create child button" do
       visit "/brands/#{osprey.id}/packs_table_name"
-      save_and_open_page
       expect(page).to have_link("Create Pack", href: "/brands/#{osprey.id}/pack_table_name/new")      
     end
 
