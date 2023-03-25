@@ -37,7 +37,7 @@ RSpec.describe "/new", type: :feature do
     visit "/brands/new"
 
     fill_in("Name", with: "gravy_fries")
-    fill_in("Founded", with: 2020)
+    fill_in("Founded", with: 4040)
     choose("Backpacks_Only", option: false)
     click_button("Create Brand")
     
