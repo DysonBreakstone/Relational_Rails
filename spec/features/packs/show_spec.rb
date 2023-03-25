@@ -18,4 +18,10 @@ RSpec.describe "/pack_table_name/:id" do
     expect(page).to have_content("Waterproof? #{raptor_14.waterproof}")
   end
 
+  it "has update button" do
+    visit "/pack_table_name/#{raptor_14.id}"
+
+    expect(page).to have_link("Update Pack", href: "/pack_table_name/edit")
+  end
+
 end
