@@ -3,10 +3,10 @@ require 'rails_helper'
 RSpec.describe "/packs", type: :feature do
   describe "creation" do
     let!(:osprey) {Brand.create!(name: "Osprey", founded: 1974, backpacks_only: true)}
-    let!(:farpoint_70) {osprey.packs.create!(name: "Farpoint 70", liters: 70, waterproof: false)}
+    let!(:farpoint_70) {osprey.packs.create!(name: "Farpoint 70", liters: 70, waterproof: true)}
     let!(:raptor_14) {osprey.packs.create!(name: "Raptor 14", liters: 14, waterproof: true)}
     
-    xit "#index" do
+    it "#index" do
       visit "/pack_table_name"
 
       expect(page).to have_content(farpoint_70.name)
