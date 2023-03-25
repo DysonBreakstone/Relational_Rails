@@ -1,0 +1,13 @@
+<form action="/brands" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <p>Brand Name:</p>
+  <input type='text' name="Name"/><br/>
+  <p>Year Founded:</p>
+  <input type='number' name="Founded"><br/>
+  <p>Backpacks Only? True or False</p>
+  <label for="true">True</label>
+  <input type='radio' id="true" value="true" name="Backpacks_Only"><br/><br/>
+  <label for="false">False</label>
+  <input type='radio' id="false" value="false" name="Backpacks_Only"><br/><br/>
+  <input type="submit" value="Create Brand"/>
+</form>
