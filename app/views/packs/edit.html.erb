@@ -1,0 +1,14 @@
+<form action="/pack_table_name/<%=@pack.id%>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="hidden" name="_method" value="PATCH">
+  <p>Pack Name:</p>
+  <input type='text' name="Name"/><br/>
+  <p>Capacity in Liters:</p>
+  <input type='number' name="Liters"><br/>
+  <p>Waterproof?</p>
+  <label for="true">True</label>
+  <input type='radio' id="true" value="true" name="Waterproof"><br/><br/>
+  <label for="false">False</label>
+  <input type='radio' id="false" value="false" name="Waterproof"><br/><br/>
+  <input type="submit" value="Update Pack"/>
+</form>
