@@ -2,3 +2,8 @@
 <p><%= "Capacity: #{@pack.liters} Liters"%></p>
 <p><%= "Waterproof? #{@pack.waterproof}"%></p>
 <h3><%= link_to "Update Pack", "/pack_table_name/edit"%>
+<form action="/pack_table_name/<%= @pack.id %>" method="POST">
+<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+<input type="hidden" name="_method" value="DELETE">
+<input type="submit" value="Delete"/>
+</form>

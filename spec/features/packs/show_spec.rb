@@ -54,16 +54,16 @@ RSpec.describe "/pack_table_name/:id" do
       visit "/pack_table_name/#{pack1.id}"
       click_button("Delete")
 
-      visit "/brands"
+      visit "/pack_table_name"
       expect(page).to have_no_content(pack1.name)
-      expect(page).to have_no_content(pack1.founded)
+      expect(page).to have_no_content(pack1.liters)
 
-      visit "/brands/#{pack2.id}"
+      visit "/pack_table_name/#{pack2.id}"
       click_button("Delete")
 
-      visit "/brands"
+      visit "/pack_table_name"
       expect(page).to have_no_content(pack2.name)
-      expect(page).to have_no_content(pack2.founded)
+      expect(page).to have_no_content(pack2.liters)
     end
   end
 

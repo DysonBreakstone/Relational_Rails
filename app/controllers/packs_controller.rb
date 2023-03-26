@@ -27,4 +27,10 @@ class PacksController < ApplicationController
       waterproof: wproof)
   end
 
+  def delete
+    Pack.destroy(params[:id])
+    redirect_to "/pack_table_name"
+  end
+
+
 end

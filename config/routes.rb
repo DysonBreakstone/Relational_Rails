@@ -15,5 +15,6 @@ Rails.application.routes.draw do
   get "/pack_table_name/:id/edit", to: "packs#edit"
   patch "/pack_table_name/:id", to: "packs#update"
   delete "/brands/:brand_id", to: "brands#delete"
+  delete "/pack_table_name/:id", to: "packs#delete"
   
 end
