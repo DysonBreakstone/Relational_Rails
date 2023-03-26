@@ -47,4 +47,12 @@ RSpec.describe "/brands", type: :feature do
     expect(page.all(:link, "Edit Brand").count).to eq(Brand.all.length)
   end
 
+  it "has a delete link next to every brand" do
+    visit "/brands"
+
+    expect(page.all(:link, "Delete Brand").count).to eq(Brand.all.length)
+
+    expect(page).to have_link("Delete Brand", id: "Delete #{a.id}")
+  end
+
 end
