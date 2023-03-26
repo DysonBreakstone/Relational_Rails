@@ -53,8 +53,7 @@ RSpec.describe "/packs", type: :feature do
 
     it "has edit links next to each pack" do
       visit "/pack_table_name"
-      save_and_open_page
-      # require 'pry'; binding.pry
+ 
       expect(page.all(:link, "Edit Pack").count).to eq(Pack.where(waterproof: true).length)
     end
   end
