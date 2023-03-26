@@ -8,4 +8,9 @@ class Pack < ApplicationRecord
   def self.alphabetize
     Pack.order(:name)
   end
+
+  def self.filter_liters(threshold)
+    Pack.where("liters >= #{threshold}")
+    # require 'pry'; binding.pry
+  end
 end

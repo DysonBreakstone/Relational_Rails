@@ -20,7 +20,7 @@ RSpec.describe "/pack_table_name/edit" do
     click_button("Update Pack")
 
     visit "/pack_table_name"
-
+    
     expect(page).to have_content("bacon")
     expect(page).to have_content(101)
     expect(page).to have_content(true)

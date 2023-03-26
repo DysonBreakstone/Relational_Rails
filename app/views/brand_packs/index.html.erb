@@ -1,8 +1,15 @@
 <h1><%= @brand.name %>
+<form action="/brands/<%=@brand.id%>/packs_table_name?filter=true" method="GET">
+<h2>  </h2>
+<label for="liter_threshold">Filter by capacity in liters:</label>
+
+<input type="number" id="liter_threshold" name="liter_threshold">
+<input type="submit" value="Filter"/>
+</form>
 <h2><%= link_to "Alphabetize", "/brands/#{@brand.id}/packs_table_name?sort=true" %>
 <% @packs.each do |pack| %>
 <h2 style="display: inline;"><%= pack.name %></h2><h3 style="display: inline;"><%= link_to "Edit Pack", "/pack_table_name/#{pack.id}/edit"%></h3><br/>
 <p><%= pack.liters %></p>
 <p><%= pack.waterproof%><p>
 <%end%>
-<h3><%= link_to "Create Pack", "/brands/#{@brand.id}/pack_table_name/new" %></h3>
+<h3><%= link_to "Create Pack", "/brands/#{@brand.id}/packs_table_name/new" %></h3>

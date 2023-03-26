@@ -1,11 +1,20 @@
 class BrandPacksController < ApplicationController
+  
   def index
     @brand = Brand.find(params[:brand_id])
-    if params[:sort] == "true"
-      @packs = Pack.alphabetize
+    if params[:liter_threshold] != nil && params[:sort] == "true"
+      @packs = @brand.packs.filter_liters(params[:liter_threshold]).alphabetize
+    elsif params[:liter_threshold] != nil && params[:sort] != "true"
+      @packs = @brand.packs.filter_liters(params[:liter_threshold])
+    elsif params[:liter_threshold] == nil && params[:sort] == "true"
+      @packs = @brand.packs.alphabetize
     else
       @packs = @brand.packs
     end
+  end
+
+  def filter_params
+    params.permit(:filter)
   end
 
   def new

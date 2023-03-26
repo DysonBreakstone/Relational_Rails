@@ -18,3 +18,4 @@ Rails.application.routes.draw do
   delete "/pack_table_name/:id", to: "packs#delete"
   
 end
+
