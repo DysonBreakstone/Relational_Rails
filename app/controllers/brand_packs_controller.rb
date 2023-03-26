@@ -2,15 +2,22 @@ class BrandPacksController < ApplicationController
   
   def index
     @brand = Brand.find(params[:brand_id])
-    if params[:liter_threshold] != nil && params[:sort] == "true"
-      @packs = @brand.packs.filter_liters(params[:liter_threshold]).alphabetize
-    elsif params[:liter_threshold] != nil && params[:sort] != "true"
-      @packs = @brand.packs.filter_liters(params[:liter_threshold])
-    elsif params[:liter_threshold] == nil && params[:sort] == "true"
-      @packs = @brand.packs.alphabetize
-    else
-      @packs = @brand.packs
-    end
+    @packs = if params[:liter_threshold].nil? 
+                Pack.all
+             else
+                Pack.filter_liters(params[:liter_threshold])
+             end
+    @packs = @packs.alphabetize if params[:sort] == "true"
+    
+    # if params[:liter_threshold] != nil && params[:sort] == "true"
+    #   @packs = @brand.packs.filter_liters(params[:liter_threshold]).alphabetize
+    # elsif params[:liter_threshold] != nil && params[:sort] != "true"
+    #   @packs = @brand.packs.filter_liters(params[:liter_threshold])
+    # elsif params[:liter_threshold] == nil && params[:sort] == "true"
+    #   @packs = @brand.packs.alphabetize
+    # else
+    #   @packs = @brand.packs
+    # end
   end
 
   def filter_params

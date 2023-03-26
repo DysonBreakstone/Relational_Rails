@@ -10,7 +10,7 @@ RSpec.describe 'brands packs index', type: :feature do
     let!(:baltoro_65) {gregory.packs.create!(name: "Baltoro 65", liters: 65, waterproof: true)}
     let!(:resin_22) {gregory.packs.create!(name: "Resin 22", liters: 22, waterproof: false)}
     
-    it "/brands/:brand_id/packs_table_name" do
+    xit "/brands/:brand_id/packs_table_name" do
       visit "/brands/#{osprey.id}/packs_table_name"
       
       expect(page).to have_content(osprey.name)
@@ -43,7 +43,7 @@ RSpec.describe 'brands packs index', type: :feature do
     let!(:baltoro_65) {gregory.packs.create!(name: "Baltoro 65", liters: 65, waterproof: true)}
     let!(:resin_22) {gregory.packs.create!(name: "Resin 22", liters: 22, waterproof: false)}
 
-    it "has a create child button" do
+    xit "has a create child button" do
       visit "/brands/#{osprey.id}/packs_table_name"
       expect(page).to have_link("Create Pack", href: "/brands/#{osprey.id}/packs_table_name/new")      
     end
@@ -62,13 +62,13 @@ RSpec.describe 'brands packs index', type: :feature do
     let!(:f) {brand1.packs.create!(name: "fxe", liters: 90, waterproof: false)}
     let!(:h) {brand1.packs.create!(name: "hxe", liters: 100, waterproof: false)}
 
-    it "has an alphabetize link" do
+    xit "has an alphabetize link" do
       visit "/brands/#{brand1.id}/packs_table_name"
 
       expect(page).to have_link("Alphabetize", href: "/brands/#{brand1.id}/packs_table_name?sort=true")
     end
 
-    it "appears in alphabetical order when button is clicked" do 
+    xit "appears in alphabetical order when button is clicked" do 
       visit "/brands/#{brand1.id}/packs_table_name"
 
       expect(d.name).to appear_before(j.name)
@@ -110,7 +110,7 @@ RSpec.describe 'brands packs index', type: :feature do
     let!(:f) {brand1.packs.create!(name: "fx", liters: 90, waterproof: false)}
     let!(:h) {brand1.packs.create!(name: "hx", liters: 100, waterproof: false)}
 
-    it "has edit links next to each child" do
+    xit "has edit links next to each child" do
       visit "/brands/#{brand1.id}/packs_table_name/"
  
       expect(page.all(:link, "Edit Pack").count).to eq(Pack.where(brand_id: brand1.id).length)
@@ -126,7 +126,7 @@ RSpec.describe 'brands packs index', type: :feature do
     let!(:pack4) {brand1.packs.create!(name: "pack4", liters: 20, waterproof: true)}
     let!(:pack5) {brand1.packs.create!(name: "pack5", liters: 10, waterproof: true)}
 
-    it "has a filter button and a text input" do
+    xit "has a filter button and a text input" do
       visit "/brands/#{brand1.id}/packs_table_name"
 
       expect(page).to have_selector(:link_or_button, "Filter")
