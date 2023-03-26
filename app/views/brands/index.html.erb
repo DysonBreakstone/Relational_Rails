@@ -1,5 +1,7 @@
 <% @brands.each do |brand|%>
-  <p><%= brand.name %><%= link_to "Edit Brand", "/brands/#{brand.id}/edit"%></p>
+  <h2 style="display: inline"><%= brand.name %></h2>
+  <p style="display: inline"><%= link_to "Edit Brand", "/brands/#{brand.id}/edit"%></p>
+  <p style="display: inline"><%= link_to "Delete Brand", "/brands/#{brand.id}/delete", id: "Delete #{brand.id}" %></p>
   <p><%= brand.founded %></p>
   <p><%= brand.backpacks_only %></p>
 <% end %>

@@ -55,4 +55,17 @@ RSpec.describe "/brands", type: :feature do
     expect(page).to have_link("Delete Brand", id: "Delete #{a.id}")
   end
 
+  it "delete link works" do
+    visit "/brands"
+
+    expect(page).to have_content(a.name)
+    expect(page).to have_content(b.name)
+    
+    click_link("Delete #{a.id}")
+    click_link("Delete #{b.id}")
+    
+    expect(page).to have_no_content(a.name)
+    expect(page).to have_no_content(b.name)
+  end
+
 end
