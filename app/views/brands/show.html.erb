@@ -4,4 +4,9 @@
 <p><%=@brand.founded%></p>
 <p><%=@brand.backpacks_only%></p>
 <%= link_to "#{@brand.name}'s Packs", "/brands/#{@brand.id}/packs_table_name"%>
+<form action="/brands/<%= @brand.id %>" method="POST">
+<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+<input type="hidden" name="_method" value="DELETE">
+<input type="submit" value="Delete"/>
+</form>
 

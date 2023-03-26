@@ -43,4 +43,10 @@ class BrandsController < ApplicationController
     )
     redirect_to "/brands/#{@brand.id}"
   end
+
+  def delete
+    Pack.where(brand_id: params[:brand_id]).destroy_all
+    Brand.destroy(params[:brand_id])
+    redirect_to "/brands"
+  end
 end

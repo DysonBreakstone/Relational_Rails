@@ -74,6 +74,7 @@ RSpec.describe "/brands", type: :feature do
       visit "/brands"
       expect(page).to have_no_content(brand2.name)
       expect(page).to have_no_content(brand2.founded)
+    end
   end
 end
 
