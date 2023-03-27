@@ -60,23 +60,23 @@ RSpec.describe "/packs", type: :feature do
     it "has a delete link next to every pack" do
       visit "/pack_table_name"
   
-      expect(page.all(:link, "Delete Pack").count).to eq(Pack.all.count)
+      expect(page.all(:link, "Delete Pack").count).to eq(Pack.where(waterproof: true).count)
   
       expect(page).to have_link("Delete Pack", id: "Delete #{a.id}")
-      expect(page).to have_link("Delete Pack", id: "Delete #{d.id}")
+      expect(page).to have_link("Delete Pack", id: "Delete #{g.id}")
     end
   
     it "delete link works" do
       visit "/pack_table_name"
   
       expect(page).to have_content(a.name)
-      expect(page).to have_content(b.name)
+      expect(page).to have_content(g.name)
   
       click_link("Delete #{a.id}")
-      click_link("Delete #{b.id}")
+      click_link("Delete #{g.id}")
       
       expect(page).to have_no_content(a.name)
-      expect(page).to have_no_content(b.name)
+      expect(page).to have_no_content(g.name)
     end
   end
   
