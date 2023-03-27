@@ -10,7 +10,8 @@
 
 <h2><%= link_to "Alphabetize", "/brands/#{@brand.id}/packs_table_name?sort=true&liter_threshold=#{params[:liter_threshold] ? params[:liter_threshold] : 0}" %>
 <% @packs.each do |pack| %>
-<h2 style="display: inline;"><%= pack.name %></h2><h3 style="display: inline;"><%= link_to "Edit Pack", "/pack_table_name/#{pack.id}/edit"%></h3><br/>
+<h2 style="display: inline;"><%= pack.name %></h2><h3 style="display: inline;"><%= link_to "Edit Pack", "/pack_table_name/#{pack.id}/edit"%></h3>
+<p style="display: inline"><%= link_to "Delete Pack", "/pack_table_name/#{pack.id}?source=brand_packs&brand_id=#{@brand.id}", id: "Delete #{pack.id}",:method => :delete %></p><br/>
 <p><%= pack.liters %></p>
 <p><%= pack.waterproof%><p>
 <%end%>

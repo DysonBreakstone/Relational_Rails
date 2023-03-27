@@ -38,7 +38,7 @@ RSpec.describe "/packs", type: :feature do
     end
   end
 
-  describe "Pack edit button on packs index page" do
+  describe "Pack edit and delete buttons on packs index page" do
     let!(:brand1) {Brand.create!(name:"brand1", founded: 1998, backpacks_only: true)}
     let!(:d) {brand1.packs.create!(name: "dx", liters: 10, waterproof: false)}
     let!(:j) {brand1.packs.create!(name: "jx", liters: 20, waterproof: false)}
@@ -55,6 +55,28 @@ RSpec.describe "/packs", type: :feature do
       visit "/pack_table_name"
  
       expect(page.all(:link, "Edit Pack").count).to eq(Pack.where(waterproof: true).length)
+    end
+
+    it "has a delete link next to every pack" do
+      visit "/pack_table_name"
+  
+      expect(page.all(:link, "Delete Pack").count).to eq(Pack.where(waterproof: true).count)
+  
+      expect(page).to have_link("Delete Pack", id: "Delete #{a.id}")
+      expect(page).to have_link("Delete Pack", id: "Delete #{g.id}")
+    end
+  
+    it "delete link works" do
+      visit "/pack_table_name"
+  
+      expect(page).to have_content(a.name)
+      expect(page).to have_content(g.name)
+  
+      click_link("Delete #{a.id}")
+      click_link("Delete #{g.id}")
+      
+      expect(page).to have_no_content(a.name)
+      expect(page).to have_no_content(g.name)
     end
   end
   
