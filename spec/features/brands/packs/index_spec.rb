@@ -163,7 +163,7 @@ RSpec.describe 'brands packs index', type: :feature do
   
       expect(page).to have_content(pack1.name)
       expect(page).to have_content(pack2.name)
-      
+  
       click_link("Delete #{pack1.id}")
       click_link("Delete #{pack2.id}")
       

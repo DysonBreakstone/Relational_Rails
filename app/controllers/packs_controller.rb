@@ -29,7 +29,12 @@ class PacksController < ApplicationController
 
   def delete
     Pack.destroy(params[:id])
-    redirect_to "/pack_table_name"
+    # require 'pry'; binding.pry
+    if params[:source] == "brand_packs"
+      redirect_to "/brands/#{params[:brand_id]}/packs_table_name"
+    else
+      redirect_to "/pack_table_name"
+    end
   end
 
 

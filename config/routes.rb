@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   delete "/brands/:brand_id", to: "brands#delete"
   delete "/pack_table_name/:id", to: "packs#delete"
   get "/brands/:brand_id/delete", to: "brands#delete"
+  # get "/pack_table_name/:pack_id/delete", to: "packs#delete"
   
 end
 
