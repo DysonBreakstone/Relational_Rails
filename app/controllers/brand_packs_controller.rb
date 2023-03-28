@@ -10,10 +10,6 @@ class BrandPacksController < ApplicationController
     @packs = @packs.alphabetize if params[:sort] == "true"
   end
 
-  def filter_params
-    params.permit(:filter)
-  end
-
   def new
     @brand = Brand.find(params[:brand_id])
   end

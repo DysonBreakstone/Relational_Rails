@@ -25,4 +25,6 @@ RSpec.describe "/pack_table_name/edit" do
     expect(page).to have_content(101)
     expect(page).to have_content(true)
   end
+
+  
 end

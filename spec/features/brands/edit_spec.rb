@@ -21,13 +21,24 @@ RSpec.describe '/parents/:id/edit' do
     fill_in("Founded", with: 1998)
     choose("Backpacks_Only", option: false)
     click_button("Update")
-
+    
     visit "/brands/#{brand1.id}"
-
+    
     expect(page).to have_content("Packs-Aren't-Us")
     expect(page).to have_content(1998)
     expect(page).to have_content(false)
 
-   
+    visit "/brands/#{brand1.id}/edit"
+    
+    fill_in("Name", with: "Packs-Aren't-Us-Or-Are-They")
+    fill_in("Founded", with: 2001)
+    choose("Backpacks_Only", option: true)
+    click_button("Update")
+
+    visit "/brands/#{brand1.id}"
+
+    expect(page).to have_content("Packs-Aren't-Us-Or-Are-They")
+    expect(page).to have_content(2001)
+    expect(page).to have_content(true)
   end
 end
