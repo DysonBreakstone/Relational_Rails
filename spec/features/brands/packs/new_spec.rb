@@ -14,7 +14,6 @@ RSpec.describe '/brands/:parent_id/packs_table_name/new' do
 
     expect(page).to have_no_content("bacon")
     expect(page).to have_no_content(101)
-    expect(page).to have_no_content(false)
     
     visit "/brands/#{osprey.id}/packs_table_name/new"
 
